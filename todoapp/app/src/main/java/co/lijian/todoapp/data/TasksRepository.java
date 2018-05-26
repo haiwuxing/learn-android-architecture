@@ -1,5 +1,9 @@
 package co.lijian.todoapp.data;
 
+import android.support.annotation.NonNull;
+
+import static android.support.v4.util.Preconditions.checkNotNull;
+
 /**
  * Concrete implementation to load tasks from the data sources into a cache.
  * <p>
@@ -13,4 +17,32 @@ package co.lijian.todoapp.data;
  * 实现本地持久数据和服务器数据之间的一个哑巴同步。
  */
 public class TasksRepository implements TasksDataSource {
+
+    private static TasksRepository INSTANCE = null;
+
+    private final TasksDataSource mTasksRemoteDataSource;
+
+    private final TasksDataSource mTasksLocalDataSource;
+
+    // Prevent direct instantiation.
+    private TasksRepository(@NonNull TasksDataSource tasksRemoteDataSource,
+                            @NonNull TasksDataSource tasksLocalDataSource) {
+        mTasksRemoteDataSource = checkNotNull(tasksRemoteDataSource);
+        mTasksLocalDataSource = checkNotNull(tasksLocalDataSource);
+    }
+
+    /**
+     * Returns the single instance of this class, creating it if necessary.
+     *
+     * @param tasksRemoteDataSource the backend data source
+     * @param tasksLocalDataSource  the device storage data source
+     * @return the {@link TasksRepository} instance
+     */
+    public static TasksRepository getInstance(TasksDataSource tasksRemoteDataSource,
+                                              TasksDataSource tasksLocalDataSource) {
+        if (INSTANCE == null) {
+            INSTANCE = new TasksRepository(tasksRemoteDataSource, tasksLocalDataSource);
+        }
+        return INSTANCE;
+    }
 }

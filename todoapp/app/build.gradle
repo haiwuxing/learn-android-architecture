@@ -48,4 +48,7 @@ dependencies {
 
     // 抽屉式导航栏
     implementation "com.android.support:design:$rootProject.supportLibraryVersion"
+
+    // Dependencies for room
+    implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
 }

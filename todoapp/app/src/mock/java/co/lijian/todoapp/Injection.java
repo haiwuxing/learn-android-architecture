@@ -19,6 +19,14 @@ package co.lijian.todoapp;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import co.lijian.todoapp.data.FakeTasksRemoteDataSource;
+import co.lijian.todoapp.data.TasksRepository;
+import co.lijian.todoapp.data.local.TasksLocalDataSource;
+import co.lijian.todoapp.data.local.ToDoDatabase;
+import co.lijian.todoapp.util.AppExecutors;
+
+import static android.support.v4.util.Preconditions.checkNotNull;
+
 
 /**
  * Enables injection of mock implementations for
@@ -27,5 +35,11 @@ import android.support.annotation.NonNull;
  */
 public class Injection {
 
-
+    public static TasksRepository providerTasksRepository(@NonNull Context context) {
+        checkNotNull(context);
+        ToDoDatabase database = ToDoDatabase.getInstance(context);
+        return TasksRepository.getInstance(FakeTasksRemoteDataSource.getInstance(),
+                TasksLocalDataSource.getInstance(new AppExecutors(),
+                        database.taskDao()));
+    }
 }
