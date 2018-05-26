@@ -35,7 +35,7 @@ import static android.support.v4.util.Preconditions.checkNotNull;
  */
 public class Injection {
 
-    public static TasksRepository providerTasksRepository(@NonNull Context context) {
+    public static TasksRepository provideTasksRepository(@NonNull Context context) {
         checkNotNull(context);
         ToDoDatabase database = ToDoDatabase.getInstance(context);
         return TasksRepository.getInstance(FakeTasksRemoteDataSource.getInstance(),

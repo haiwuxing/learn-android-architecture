@@ -10,6 +10,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import co.lijian.todoapp.Injection;
 import co.lijian.todoapp.R;
 import co.lijian.todoapp.statistics.StatisticsActivity;
 import co.lijian.todoapp.util.ActivityUtils;
@@ -50,9 +51,8 @@ public class TasksActivity extends AppCompatActivity {
         }
 
         // Create the presenter
-//        mTasksPresenter = new TasksPresenter(
-//                Injection.provideTasksRepository(getApplicationContext(), tasksFragment);
-//        );
+        mTasksPresenter = new TasksPresenter(
+                Injection.provideTasksRepository(getApplicationContext()), tasksFragment);
     }
 
     private void setupDrawerContent(NavigationView navigationView)  {
