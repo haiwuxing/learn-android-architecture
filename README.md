@@ -8,7 +8,7 @@ https://github.com/googlesamples/android-architecture
 
 ##### src 添加 mock 文件夹
 
-![1527299968343](../../LIJIAN~1/AppData/Local/Temp/1527299968343.png)
+![1527300335395](assets/1527300335395.png)
 
 直接添加文件夹`app\src\mock\java\co\lijian\todoapp`, rebuild, 失败！
 
