@@ -18,6 +18,7 @@ public class TasksActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
 
+    private TasksPresenter mTasksPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,11 @@ public class TasksActivity extends AppCompatActivity {
             ActivityUtils.addFragmentToActivity(
                     getSupportFragmentManager(), tasksFragment, R.id.contentFrame);
         }
+
+        // Create the presenter
+//        mTasksPresenter = new TasksPresenter(
+//                Injection.provideTasksRepository(getApplicationContext(), tasksFragment);
+//        );
     }
 
     private void setupDrawerContent(NavigationView navigationView)  {
