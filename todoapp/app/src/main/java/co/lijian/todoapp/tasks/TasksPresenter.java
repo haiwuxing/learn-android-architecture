@@ -1,7 +1,9 @@
 package co.lijian.todoapp.tasks;
 
+import android.app.Activity;
 import android.support.annotation.NonNull;
 
+import co.lijian.todoapp.addedittask.AddEditTaskActivity;
 import co.lijian.todoapp.data.TasksRepository;
 
 import static android.support.v4.util.Preconditions.checkNotNull;
@@ -27,5 +29,18 @@ public class TasksPresenter implements TasksContract.Presenter {
     @Override
     public void start() {
 
+    }
+
+    @Override
+    public void addNewTask() {
+        mTasksView.showAddTask();
+    }
+
+    @Override
+    public void result(int requestCode, int resultCode) {
+        // If a task was successfully added, show snackbar
+        if (AddEditTaskActivity.REQUEST_ADD_TASK == requestCode && Activity.RESULT_OK == resultCode) {
+            mTasksView.showSuccessfullySavedMessage();
+        }
     }
 }

@@ -3,4 +3,5 @@
     <string name="list_title">TO-DO List</string>
     <string name="statistics_title">Statistics</string>
     <string name="title_activity_statistics">StatisticsActivity</string>
+    <string name="successfully_saved_task_message">TO_DO saved</string>
 </resources>
