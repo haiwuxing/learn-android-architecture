@@ -15,7 +15,8 @@ public class TasksPresenter implements TasksContract.Presenter {
 
     private final TasksContract.View mTasksView;
 
-    public TasksPresenter(@NonNull TasksRepository tasksRepository, @NonNull TasksContract.View tasksView) {
+    public TasksPresenter(@NonNull TasksRepository tasksRepository,
+                          @NonNull TasksContract.View tasksView) {
 
         mTasksRepository = checkNotNull(tasksRepository, "tasksRepository 不能为空");
         mTasksView = checkNotNull(tasksView, "tasksView 不能为空");

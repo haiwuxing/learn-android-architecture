@@ -15,6 +15,8 @@ public abstract class ToDoDatabase  extends RoomDatabase {
 
     private static ToDoDatabase INSTANCE;
 
+    public abstract TasksDao taskDao();
+
     private static final Object sLock = new Object();
 
     public static ToDoDatabase getInstance(Context context) {
@@ -27,6 +29,4 @@ public abstract class ToDoDatabase  extends RoomDatabase {
             return INSTANCE;
         }
     }
-
-    public abstract TasksDao taskDao();
 }
