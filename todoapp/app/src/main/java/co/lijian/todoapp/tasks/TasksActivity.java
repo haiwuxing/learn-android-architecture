@@ -1,4 +1,4 @@
-package co.lijian.todoapp;
+package co.lijian.todoapp.tasks;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -10,6 +10,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import co.lijian.todoapp.R;
+import co.lijian.todoapp.statistics.StatisticsActivity;
 import co.lijian.todoapp.util.ActivityUtils;
 
 public class TasksActivity extends AppCompatActivity {

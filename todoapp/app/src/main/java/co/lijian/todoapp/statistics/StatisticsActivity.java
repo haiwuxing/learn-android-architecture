@@ -1,4 +1,4 @@
-package co.lijian.todoapp;
+package co.lijian.todoapp.statistics;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -6,6 +6,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+
+import co.lijian.todoapp.R;
 
 /**
  * Show statistics for tasks.
